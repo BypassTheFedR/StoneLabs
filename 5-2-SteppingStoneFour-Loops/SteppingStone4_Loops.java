@@ -36,6 +36,12 @@ public class SteppingStone4_Loops {
             *   anything else --> prompt for a "y" or "n"
             * 
             */
+            if (reply == "y") {
+                System.out.println("Enter the next ingredients name: ");
+                ingredientList.add(scnr.next());
+            } else if (reply == "n") {
+                addMoreIngredients = false;
+            }
             
        } while (addMoreIngredients);
        
