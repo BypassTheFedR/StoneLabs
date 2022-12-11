@@ -51,7 +51,7 @@ public class SteppingStone4_Loops {
 		   *	and assigning it to the String ingredient
 		   *
 		   */
-		   String ingredient = ???;
+		   String ingredient = ingredientList.get(i);
            System.out.println(ingredient);
        }
     }
