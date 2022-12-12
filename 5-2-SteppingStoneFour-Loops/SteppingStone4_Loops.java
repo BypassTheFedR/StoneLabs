@@ -21,6 +21,7 @@ public class SteppingStone4_Loops {
        System.out.println("Please enter the recipe name: ");
        recipeName = scnr.nextLine();
        
+       
         
        do {           
            System.out.println("Would you like to enter an ingredient: (y or n)");
@@ -36,15 +37,26 @@ public class SteppingStone4_Loops {
             *   anything else --> prompt for a "y" or "n"
             * 
             */
-            if (reply == "y") {
+            // This line checks to see if the user would like to an another ingredient.
+            if (reply.equals("y")) {
+                
+                /*
+                
+                * Gets the name of the ingredient.
+                * Add ingredient name to the ingredientList array.
+                
                 System.out.println("Enter the next ingredients name: ");
-                ingredientList.add(scnr.next());
-            } else if (reply == "n") {
+                String addIngredient = scnr.next();
+                ingredientList.add(addIngredient);
+                
+                // Checks if there are no more ingredients to be added and ends loops.
+            } else if (reply.equals("n")) {
                 addMoreIngredients = false;
+                break;
             }
-            
        } while (addMoreIngredients);
        
+       // Prints all the igredients from the ingridient list array.
        for (int i = 0; i < ingredientList.size(); i++) {
            /** 
 		   * Get the item i from the ingredient list
@@ -56,6 +68,3 @@ public class SteppingStone4_Loops {
        }
     }
 }
-
-
-
