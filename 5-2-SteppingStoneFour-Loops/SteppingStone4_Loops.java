@@ -49,6 +49,8 @@ public class SteppingStone4_Loops {
                 String addIngredient = scnr.next();
                 ingredientList.add(addIngredient);
                 
+                */
+                
                 // Checks if there are no more ingredients to be added and ends loops.
             } else if (reply.equals("n")) {
                 addMoreIngredients = false;
@@ -68,3 +70,5 @@ public class SteppingStone4_Loops {
        }
     }
 }
+
+
