@@ -1,6 +1,7 @@
 package SteppingStones;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class SteppingStone6_RecipeBox {
 	
@@ -9,17 +10,31 @@ public class SteppingStone6_RecipeBox {
 	 * a private ArrayList of the type SteppingStone5_Recipe named listOfRecipes
 	 * 
 	 */
-    
+    private ArrayList<String> listOfRecipes = new ArrayList<String>();
+
 	/**
 	 * Add accessor and mutator for listOfRecipes
 	 * 
 	 */
+	public ArrayList<String> getListOfRecipes() {
+		return listOfRecipes;
+	}
+
+	 public void setListOfRecipes(ArrayList<String> listOfRecipes) {
+		this.listOfRecipes = listOfRecipes;
+	}
 
 	/**
-	 * Add constructors for the SteppingStone6_RecipeBox()
+	 * Constructors for the SteppingStone6_RecipeBox()
 	 * 
 	 */
-	 
+	 public SteppingStone6_RecipeBox () {
+		this.listOfRecipes = new ArrayList<>();
+	 }
+
+	 public SteppingStone6_RecipeBox(ArrayList<String> listOfRecipes) {
+		this.listOfRecipes = listOfRecipes;
+	 } 
 	/**
 	 * Add the following custom methods:
 	 * 
@@ -36,8 +51,28 @@ public class SteppingStone6_RecipeBox {
 	 * 		SteppingStone5_Recipe to the listOfRecipes
 	 * 
 	 */
+	public void printAllRecipeDetails(String recipeName) {
+		if (listOfRecipes.contains(recipeName)) {
+			//FIXME: Print the details of the recipe
+			
+
+		} else {
+			System.out.println(recipeName + "is not in the list of recipes.");
+		}
+	}
 	
-	
+	public void printAllRecipeNames() {
+		for (int i = 0; i < listOfRecipes.size(); ++i) {
+			System.out.println(listOfRecipes.get(i));
+		}
+	}
+
+	public void addNewRecipe() {
+		Scanner scnr = new Scanner(System.in);
+		System.out.println("Enter the name of the recipe: ");
+		listOfRecipes.add(scnr.nextLine());
+
+	}
 	/**
 	* A variation of following menu method should be used as the actual main 
 	*		once you are ready to submit your final application.  For this 
@@ -82,7 +117,7 @@ public class SteppingStone6_RecipeBox {
 			*/
 			
 			if (input == 1) {
-                newRecipe();
+                addNewRecipe();
             } else if (input == 2) {
                 System.out.println("Which recipe?\n");
                 String selectedRecipeName = menuScnr.next();
@@ -91,7 +126,9 @@ public class SteppingStone6_RecipeBox {
                 
 				
 				for (int j = 0; j < listOfRecipes.size(); j++) { 
-                    System.out.println((j + 1) + ": " + listOfRecipes.get(j).getRecipeName()); 
+                    System.out.println((j + 1) + ": " + listOfRecipes.get(j));
+					//FIXME: Old code System.out.println((j + 1) + ": " + listOfRecipes.get(j).getRecipeName()); 
+
                 }
             } else {
                 System.out.println("\nMenu\n" + "1. Add Recipe\n" + "2. Print Recipe\n" + "3. Adjust Recipe Servings\n" + "\nPlease select a menu item:");
@@ -125,10 +162,7 @@ public class SteppingStone6_RecipeBox {
 			
 			System.out.println("Menu\n" + "1. Add Recipe\n" + "2. Print All Recipe Details\n" + "3. Print All Recipe Names\n" + "\nPlease select a menu item:");
 		}
-		
-        
 	}
-
 }
 
 
