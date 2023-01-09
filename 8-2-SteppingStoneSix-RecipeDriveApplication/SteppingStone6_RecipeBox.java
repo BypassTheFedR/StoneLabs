@@ -78,9 +78,9 @@ public class SteppingStone6_RecipeBox {
 	public void addNewRecipe() {
 		Scanner scnr = new Scanner(System.in);
 		System.out.println("Enter the name of the recipe: ");
-		String tmpRecipe = scnr.nextLine();
-		listOfRecipes.add(tmpRecipe);
-		tmpRecipe = new SteppingStone5_Recipe();
+		// SteppingStone5_Recipe tmpRecipe = scnr.nextLine();
+		listOfRecipes.add(scnr.nextLine());
+		SteppingStone5_Recipe tmpRecipe = new SteppingStone5_Recipe(scnr.nextLine());
 	}
 	/**
 	* A variation of following menu method should be used as the actual main 
@@ -146,7 +146,7 @@ public class SteppingStone6_RecipeBox {
             */
 
 			/**
-			* This could should be uncommented when using the
+			* This code should be uncommented when using the
 			* 		public static main() method
 			* 
 			* Comment out this section when using the
@@ -158,7 +158,7 @@ public class SteppingStone6_RecipeBox {
                 myRecipeBox.addNewRecipe();
             } else if (input == 2) {
                 System.out.println("Which recipe?\n");
-                String selectedRecipeName = menuScnr.next();
+                String selectedRecipeName = menuScnr.nextLine();
                 myRecipeBox.printAllRecipeDetails(selectedRecipeName);
             } else if (input == 3) {
 				myRecipeBox.printAllRecipeNames();
