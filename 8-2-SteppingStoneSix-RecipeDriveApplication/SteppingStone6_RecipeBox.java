@@ -38,29 +38,37 @@ public class SteppingStone6_RecipeBox {
 	/**
 	 * Add the following custom methods:
 	 * 
-	 * //printAllRecipeDetails(SteppingStone5_Recipe selectedRecipe)
+	 * DONE- //printAllRecipeDetails(SteppingStone5_Recipe selectedRecipe)
 	 * 		This method should accept a recipe from the listOfRecipes ArrayList
 	 * 		recipeName and use the SteppingStone5_Recipe.printRecipe() method 
 	 * 		to print the recipe
 	 * 		
-	 * //printAllRecipeNames() <-- This method should print just the recipe
+	 * DONE- //printAllRecipeNames() <-- This method should print just the recipe
 	 * 		names of each of the recipes in the listOfRecipes ArrayList
 	 * 
-	 * //addRecipe(SteppingStone5_Recipe tmpRecipe) <-- This method should use
+	 * DONE- //addRecipe(SteppingStone5_Recipe tmpRecipe) <-- This method should use
 	 * 		the SteppingStone5_Recipe.addRecipe() method to add a new 
 	 * 		SteppingStone5_Recipe to the listOfRecipes
 	 * 
 	 */
-	public void printAllRecipeDetails(String recipeName) {
+
+	/*
+	 * Takes the name of a recipe object and prints the details of the recipe using the recipe object's print method.
+	 */
+
+	 public void printAllRecipeDetails(String recipeName) {
 		if (listOfRecipes.contains(recipeName)) {
-			//FIXME: Print the details of the recipe
-			
+			SteppingStone5_Recipe.getRecipeIngredients(recipeName);
 
 		} else {
+
 			System.out.println(recipeName + "is not in the list of recipes.");
 		}
 	}
 	
+	/*
+	 * Prints the names of all recipes
+	 */
 	public void printAllRecipeNames() {
 		for (int i = 0; i < listOfRecipes.size(); ++i) {
 			System.out.println(listOfRecipes.get(i));
@@ -70,8 +78,9 @@ public class SteppingStone6_RecipeBox {
 	public void addNewRecipe() {
 		Scanner scnr = new Scanner(System.in);
 		System.out.println("Enter the name of the recipe: ");
-		listOfRecipes.add(scnr.nextLine());
-
+		String tmpRecipe = scnr.nextLine();
+		listOfRecipes.add(tmpRecipe);
+		tmpRecipe = new SteppingStone5_Recipe();
 	}
 	/**
 	* A variation of following menu method should be used as the actual main 
@@ -83,10 +92,11 @@ public class SteppingStone6_RecipeBox {
 	*
 	*/
 	
-	public void menu() {
+	// public void menu() {
+	public static void main(String[] args) {
     	// Create a Recipe Box
     		
-		//SteppingStone6_RecipeBox myRecipeBox = new SteppingStone6_RecipeBox(); //Uncomment for main method
+		SteppingStone6_RecipeBox myRecipeBox = new SteppingStone6_RecipeBox(); //Uncomment for main method
         Scanner menuScnr = new Scanner(System.in);
         
 		
@@ -115,7 +125,7 @@ public class SteppingStone6_RecipeBox {
 			* Comment out this section when using the
 			*		public static main() method
 			*/
-			
+			/*
 			if (input == 1) {
                 addNewRecipe();
             } else if (input == 2) {
@@ -133,7 +143,8 @@ public class SteppingStone6_RecipeBox {
             } else {
                 System.out.println("\nMenu\n" + "1. Add Recipe\n" + "2. Print Recipe\n" + "3. Adjust Recipe Servings\n" + "\nPlease select a menu item:");
             }
-            
+            */
+
 			/**
 			* This could should be uncommented when using the
 			* 		public static main() method
@@ -141,24 +152,21 @@ public class SteppingStone6_RecipeBox {
 			* Comment out this section when using the
 			* 		SteppingStone6_RecipeBox_tester.
 			*		
-			
+			*/
 			
 			if (input == 1) {
-                myRecipeBox.newRecipe();
+                myRecipeBox.addNewRecipe();
             } else if (input == 2) {
                 System.out.println("Which recipe?\n");
                 String selectedRecipeName = menuScnr.next();
-                myRecipesBox.printAllRecipeDetails(selectedRecipeName);
-            } else if (input == 3) {		
-				for (int j = 0; j < myRecipesBox.listOfRecipes.size(); j++) { 
-                    System.out.println((j + 1) + ": " + myRecipesBox.listOfRecipes.get(j).getRecipeName());
-				}
+                myRecipeBox.printAllRecipeDetails(selectedRecipeName);
+            } else if (input == 3) {
+				myRecipeBox.printAllRecipeNames();
             } else {
                 System.out.println("\nMenu\n" + "1. Add Recipe\n" + "2. Print Recipe\n" + "3. Adjust Recipe Servings\n" + "\nPlease select a menu item:");
             }
 			
-			*
-			*/
+			/* */
 			
 			System.out.println("Menu\n" + "1. Add Recipe\n" + "2. Print All Recipe Details\n" + "3. Print All Recipe Names\n" + "\nPlease select a menu item:");
 		}
